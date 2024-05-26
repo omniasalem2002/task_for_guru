@@ -29,7 +29,7 @@ class ProfileProvider with ChangeNotifier {
     await FirebaseFirestore.instance.collection('profiles').add({
       'name': profile.name,
       'birthdate': profile.birthdate.toIso8601String(),
-      'age': profile.age,
+      'age': profile.age.toString(),
     });
     notifyListeners();
   }

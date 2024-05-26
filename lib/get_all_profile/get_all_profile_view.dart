@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task_for_guru/add_profile/add_profile_screen.dart';
@@ -28,7 +29,8 @@ class GetAllProfileView extends StatelessWidget {
         centerTitle: true, // Center the title horizontally
       ),
       body: FutureBuilder(
-        future: profileProvider.fetchProfiles(),
+
+        future:  FirebaseFirestore.instance.collection('profiles').get(),
         builder: (ctx, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -37,10 +39,30 @@ class GetAllProfileView extends StatelessWidget {
             itemCount: profileProvider.profiles.length,
             itemBuilder: (ctx, index) {
               final profile = profileProvider.profiles[index];
-              return ListTile(
-                title: Text(profile.name),
-                subtitle: Text('Age: ${profile.age}'),
-              );
+              return
+                InkWell(
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(color: Colors.yellow, width: 1.0),
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 2),
+                      child: ListTile(
+                        title: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: AlignmentDirectional.centerStart,
+                          child: Text(
+                              profile.name
+
+                          ),
+                        ),
+                        subtitle: Text('Age: ${profile.age}'),
+
+                      ),
+                    ),
+                  ),
+                );
             },
           );
         },

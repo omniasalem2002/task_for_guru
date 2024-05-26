@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "15799592224",
+    "project_id": "taskguru-9843c",
+    "storage_bucket": "taskguru-9843c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15799592224:android:4c02c2e51e7bfa640aa345",
+        "android_client_info": {
+          "package_name": "com.example.task_for_guru"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0u4YQeYFY2p7TARkQmzET07DJmgYBBf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

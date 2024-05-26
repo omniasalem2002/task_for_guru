@@ -11,8 +11,14 @@ import 'firebase_options.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+    // options: DefaultFirebaseOptions.currentPlatform
 
+      options: FirebaseOptions(
+          appId: '1:15799592224:android:4c02c2e51e7bfa640aa345',
+          messagingSenderId: '15799592224',
+          projectId: 'taskguru-9843c',
+          apiKey: 'key'
+      )
   );
   runApp(MyApp());
 }
@@ -24,6 +30,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => ProfileProvider(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Profile App',
         theme: ThemeData(
           primarySwatch: Colors.blue,
