@@ -12,7 +12,20 @@ class GetAllProfileView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile List'),
+        backgroundColor: Colors.yellow,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20), // Set the border radius here
+          ),
+        ),
+        title: Text(
+          'Profile List',
+          textAlign: TextAlign.center, // Align the title text to the center
+          style: TextStyle(
+            color: Colors.white, // Change the text color to white
+          ),
+        ),
+        centerTitle: true, // Center the title horizontally
       ),
       body: FutureBuilder(
         future: profileProvider.fetchProfiles(),

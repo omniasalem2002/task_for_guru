@@ -51,24 +51,58 @@ class _AddProfileScreenState extends State<AddProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add Profile'),
+        backgroundColor: Colors.yellow,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20), // Set the border radius here
+          ),
+        ),
+        title: Text(
+          'Add Profile',
+          textAlign: TextAlign.center, // Align the title text to the center
+          style: TextStyle(
+            color: Colors.white, // Change the text color to white
+          ),
+        ),
+        centerTitle: true, // Center the title horizontally
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            TextField(
-              decoration: const InputDecoration(labelText: 'Name'),
-              controller: _nameController,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             TextField(
-              decoration: const InputDecoration(labelText: 'Birthdate'),
+              decoration: InputDecoration(
+                hintText: 'Name',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(color: Colors.grey, width: 2.0),
+                ),
+                contentPadding: EdgeInsets.symmetric(horizontal: 20.0),
+              ),
+              controller: _nameController,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
+            TextField(
+              decoration:  InputDecoration(labelText: 'Birthdate',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(color: Colors.grey, width: 2.0),
+                ),
+              ),
+
               controller: _birthdateController,
               onTap: _presentDatePicker,
               readOnly: true,
             ),
-          const  SizedBox(height: 20),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.05,
+            ),
             ElevatedButton(
               child: const Text('Add Profile'),
               onPressed: _submitData,
